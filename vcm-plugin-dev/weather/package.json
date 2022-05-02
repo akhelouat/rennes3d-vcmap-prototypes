@@ -1,0 +1,49 @@
+{
+  "name": "weather",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "prepublishOnly": "vcmplugin build",
+    "build": "vcmplugin build",
+    "pack": "vcmplugin pack",
+    "start": "vcmplugin serve",
+    "preview": "vcmplugin preview",
+    "lint": "eslint \"{src,tests}/**/*.{js,vue}\""
+  },
+  "author": "author <email>",
+  "license": "ISC",
+  "keywords": [
+    "vcmap",
+    "plugin"
+  ],
+  "files": [
+    "src/",
+    "dist/",
+    "plugin-assets/",
+    "LICENSE.md",
+    "README.md"
+  ],
+  "exports": {
+    ".": "./src/index.js",
+    "./dist": "./dist/index.js"
+  },
+  "eslintIgnore": [
+    "node_modules"
+  ],
+  "eslintConfig": {
+    "root": true,
+    "extends": "@vcsuite/eslint-config/vue"
+  },
+  "peerDependencies": {
+    "@vcmap/ui": "^5.0.0-rc.6",
+    "@vcsuite/ui-components": "^0.1.14"
+  },
+  "devDependencies": {
+    "@vcmap/plugin-cli": "^2.0.3",
+    "@vcsuite/eslint-config": "^2.1.1"
+  },
+  "dependencies": {
+    "underscore.template": "^0.1.7"
+  }
+}
