@@ -1,0 +1,54 @@
+{
+  "mapcontainer": "map-2d",
+  "startingViewPointName": "rennes",
+  "startingMapName": "ol",
+  "layers": [
+    {
+      "name": "terrain",
+      "url": "data/terrain",
+      "activeOnStartup": true
+    },
+    {
+      "name": "building",
+      "url": "data/buildings",
+      "activeOnStartup": true
+    }
+  ],
+  "maps": [
+    {
+      "type": "OpenLayersMap",
+      "name": "ol"
+    },
+    {
+      "type": "CesiumMap",
+      "name": "cesium"
+    }
+  ],
+  "viewpoints": [
+    {
+      "name": "rennes",
+      "cameraPosition": [
+        -1.67000000000001,
+        48.11470000000000,
+        677.0294500017116
+      ],
+      "groundPosition": [
+        -1.67000000000001,
+        48.11470000000000,
+        34.500300497361984
+      ],
+      "distance": 980.8215342887953,
+      "heading": 42.84999999999993,
+      "pitch": -40.93,
+      "roll": 360,
+      "animate": false,
+      "type": "ViewPoint",
+      "properties": {
+        "title": {
+          "en": "Rennes",
+          "de": "Rennes"
+        }
+      }
+    }
+  ]
+}

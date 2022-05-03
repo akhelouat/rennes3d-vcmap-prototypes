@@ -1,7 +1,9 @@
 import { MapCollection } from '@vcmap/core';
 import { createApp } from 'vue'
 import App from './App.vue'
-import './index.css'
+import init from './init';
+import './index.css';
+import config from '../map.config.json';
 
 declare global {
   interface Window {
@@ -13,4 +15,4 @@ declare global {
 window.mapContext = null;
 window.CESIUM_BASE_URL = '/node_modules/@vcmap/cesium/Source/';
 
-createApp(App).mount('#app')
+init(App, '#app', config);

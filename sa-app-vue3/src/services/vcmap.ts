@@ -8,7 +8,8 @@ import {
   TerrainLayer, 
   VcsMap, 
   VectorTileLayer, 
-  ViewPoint } from "@vcmap/core";
+  ViewPoint, 
+  VcsApp } from "@vcmap/core";
 
 const cleanUpMap = (): void => {
   if (window.mapContext) {
@@ -72,7 +73,7 @@ const clearTargetElement = (target: string) => {
 }
 
 
-export default async function start(is3d = false, viewPoint: any, target = 'map-2d') {
+export default async function start(is3d = false, viewPoint: any, target = 'map-5d') {
   if (window.mapContext) {
     cleanUpMap();
     clearTargetElement(target);
@@ -106,3 +107,9 @@ export default async function start(is3d = false, viewPoint: any, target = 'map-
   window.mapContext = context;
   return context;
 }
+
+class RennesApp extends VcsApp {
+  
+}
+
+export {RennesApp};
