@@ -63,10 +63,14 @@ export default {
   },
   methods: {
     async search() {
+      const apiKey = "79e9950b29421c3912111222112b75f0";
+      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.cityName}&appid=${apiKey}`)
+      const data = await response.json();
+
       const vp = new ViewPoint({
-        cameraPosition: [10.00, 10.00, 1000]
+        cameraPosition: [data.coord.lon, data.coord.lat, 15000]
       });
-      await this.app.maps.activeMap.gotoViewPoint(vp)
+      await this.app.maps.activeMap.gotoViewPoint(vp);
     }
   }
 };
@@ -77,6 +81,8 @@ export default {
   padding: 1rem;
   height: 100%;
   width: 15%;
-  background: white;
+  background: #f5f6fe;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
 </style>

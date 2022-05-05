@@ -1,10 +1,11 @@
 <template>
   <div id="app-container">
-    <AppHeader @click="toggle3d()" />
+    <AppHeader :app="app" @click="toggle3d()" />
     <div id="map">
       <Sidebar :app="app"/>
       <Map :app="app"/>
     </div>
+    <MapControls :app="app"/>
   </div>
 </template>
 
@@ -13,6 +14,7 @@
 import MapComponent from "./components/MapComponent.vue";
 import AppHeader from "./components/AppHeader.vue";
 import Sidebar from './components/Sidebar.vue';
+import MapControls from './components/MapControls.vue';
 import { RennesApp } from "./services/vcmap";
 
 export default {
@@ -20,7 +22,8 @@ export default {
   components: {
     AppHeader,
     Map: MapComponent,
-    Sidebar
+    Sidebar,
+    MapControls
   },
   props: {
     app: RennesApp,
@@ -70,7 +73,6 @@ body {
 
 #map {
   flex: 1;
-  background: grey;
   display: flex;
   flex-direction: row;
 }

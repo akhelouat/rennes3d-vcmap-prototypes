@@ -1,7 +1,7 @@
 import { WindowSlot } from '@vcmap/ui';
 import { version, name } from '../package.json';
 import CitySearch, { windowId } from './citySearch.vue';
-import { ButtonLocation } from '@vcmap/ui';
+import { ButtonLocation, createToggleAction } from '@vcmap/ui';
 
 /**
  * @param {VcsApp} app - the app from which this plugin is loaded.
@@ -18,18 +18,39 @@ export default function citySearch(app, config) {
       console.log(vcsUiApp);
     },
     onVcsAppMounted: async (vcsUiApp) => {
-
-      console.log('Called when the root UI component is mounted and managers are ready to accept components');
-      // test();
-      vcsUiApp.windowManager.add({
-        id: windowId,
-        component: CitySearch,
-        WindowSlot: WindowSlot.DETACHED,
-        position: {
-          left: '40%',
-          right: '40%',
+      const { action, destroy } = createToggleAction(
+        {
+          name: 'city search',
+          icon: '$vcsCircle',
+          title: 'city search',
         },
-      }, name);
+        {
+          id: windowId,
+          component: CitySearch,
+          slot: WindowSlot.STATIC,
+          state: {
+            headerTitle: 'city search',
+            headerIcon: '$vcsCircle',
+          },
+        },
+        vcsUiApp.windowManager,
+        name,
+      );
+
+      // vcsUiApp.windowManager.add({
+      //   id: windowId,
+      //   component: CitySearch,
+      //   WindowSlot: WindowSlot.DETACHED,
+      //   position: {
+      //     left: '40%',
+      //     right: '40%',
+      //   },
+      // }, name);
+
+      vcsUiApp.navbarManager.add({
+        id: windowId,
+        location: ButtonLocation.TOOL,
+        action}, name);
 
     },
     toJSON: async () => {

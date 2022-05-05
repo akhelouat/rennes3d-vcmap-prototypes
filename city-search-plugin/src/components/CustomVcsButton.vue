@@ -1,6 +1,6 @@
 <template>
-  <VcsButton class="custom_vcs_button">
-    <span>{{ title }}<span>
+  <VcsButton @click="emitClick" class="custom_vcs_button">
+    <span>{{ title }}</span>
   </VcsButton>
 </template>
 
@@ -18,6 +18,11 @@ export default {
       default: "",
     },
   },
+  methods: {
+    emitClick() {
+      this.$emit('click')
+    }
+  }
 };
 </script>
 

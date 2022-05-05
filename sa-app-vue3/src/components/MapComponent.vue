@@ -4,6 +4,7 @@
 
 <script lang="ts">
 import { RennesApp } from "../services/vcmap";
+
 export default {
   name: "MapComponent",
   props: {
@@ -23,7 +24,6 @@ export default {
 .map_container {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 8 8'%3E%3Cg fill='%23acacac' fill-opacity='0.4'%3E%3Cpath fill-rule='evenodd' d='M0 0h4v4H0V0zm4 4h4v4H4V4z'/%3E%3C/g%3E%3C/svg%3E");
   flex: 1;
-  background: black;
   overflow: hidden;
 }
 
@@ -36,7 +36,6 @@ export default {
 
   .cesium-widget {
     height: 100%;
-
     position: relative;
   }
 

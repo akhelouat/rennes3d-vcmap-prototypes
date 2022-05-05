@@ -14,6 +14,8 @@ async function init(AppComponent: DefineComponent, target: string, config: VcsAp
   
   await app.addContext(context);
 
+  window.vcsApp = app;
+
   createApp(AppComponent, { app: app }).mount(target);
 }
 
